@@ -1,0 +1,8 @@
+{
+	"MoveUp": "w",
+	"MoveDown": "s",
+	"MoveRight": "d",
+	"MoveLeft": "a",
+	"Target": "t"
+
+}

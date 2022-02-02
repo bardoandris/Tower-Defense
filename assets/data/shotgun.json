@@ -1,0 +1,6 @@
+{	"Name": "Shotgun",
+	"BaseDMG": "200",
+	"Falloff":[3, 25],
+	"Accuracy": 2,
+	"Variance": 30
+}

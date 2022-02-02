@@ -1,0 +1,6 @@
+{	"Name": "Rifle",
+	"BaseDMG": "100",
+	"Falloff":[5, 10],
+	"Accuracy": 4,
+	"Variance": 10
+}
