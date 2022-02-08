@@ -4,7 +4,9 @@
 class MapCell{
 	public:
 	Entity* entity;
-	MapCell();
+	MapCell(){};
+	MapCell(Entity ent);
+	
 	private:
 	std::vector<MapCell*> Neighbours;
 };
