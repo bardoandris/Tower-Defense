@@ -14,6 +14,7 @@ class PlayArea{
 	public:
 	PlayArea(int diff);
 	PlayArea(std::string mapfile);
+	PlayArea();
 	private:
 	std::vector<std::vector<MapCell>>* map;
 
