@@ -17,6 +17,7 @@ PlayArea::PlayArea(int diff){ // TODO STATIC PLAYAREA SIZE!!
 		}
 	}
 }
+
 MapCell InitCell(){
 	MapCell MP;
 	return MP;

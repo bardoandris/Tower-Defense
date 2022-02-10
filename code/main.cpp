@@ -21,23 +21,31 @@ int main(){
 	//PlayArea* PL = new PlayArea(); // placeholder initializer
 	SDL_Window *MainWindow;
 	SDL_Surface *MainSurface;
-	if(!(MainWindow = SDL_CreateWindow("Tower Defense", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 20*32+500, 25*32, 0))){ //1140*800 window
+	if(!(MainWindow = SDL_CreateWindow("Tower Defense", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, glb::WindowWidth, glb::WindowHeight, 0))){ //1140*800 window
 		std::cout << "Couldn't create SDL Window";
 		exit(1);
-	}
+	} 
 	if(!(MainSurface = SDL_GetWindowSurface(MainWindow))){
 		std::cout << "Couldn't get SDL Window-Surface";
 		exit(1);
 	}
+
+	
 	SDL_Rect rect; rect.h = 32; rect.w = 32;
-		rect.x = glb::WindowWidth / 2 - rect.x/2;
-		rect.y = glb::WindowHeight / 2 - rect.y/2;
+		rect.y =glb::WindowHeight / 2 - glb::TileSize/2;
+		rect.x = glb::WindowWidth / 2 - glb::TileSize/2;
 	SDL_Surface *surf = IMG_Load("assets/Tiles/grass.png");
+	if (surf == 0) {
+	cout << "ERROR WITH OPENING FILE";
+	}
+
 	#pragma region KeyControls
 		Uint8 const *keys;
-
+	
 	for (bool exit = 0; !exit;) {
-		SDL_BlitSurface(surf, &rect, MainSurface, NULL);
+		SDL_BlitScaled(surf, NULL, MainSurface, &rect);
+		
+		SDL_UpdateWindowSurface(MainWindow);
 		SDL_PumpEvents();
 		keys = SDL_GetKeyboardState(NULL);
 		if (keys[SDL_SCANCODE_A] == 1) {
@@ -45,6 +53,6 @@ int main(){
 		}
 	}
 	#pragma endregion
-	SDL_Delay(2000);
+	SDL_Delay(200);
 
 }
