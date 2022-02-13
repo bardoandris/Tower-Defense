@@ -1,6 +1,7 @@
 #include <string.h>
 #include <string>
 #include <utility>
+
 class Weapon{
 	int BaseDMG, Accuracy, Variance;
 	std::string Name;
@@ -12,5 +13,5 @@ class Weapon{
 	friend bool operator== (const Weapon left, const Weapon right){
 		return left.Name == right.Name;
 	}
-	
+	Weapon();
 };

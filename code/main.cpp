@@ -13,12 +13,16 @@
 #include <cstddef>
 #include <cstdlib>
 #include <iostream>
+#include <map>
+#include <string>
 #include "global_defs.hpp"
-#include "map.hpp"
+#include "drawing.hpp"
+
 namespace glb = game_globals;
 using namespace std;
 int main(){
-	//PlayArea* PL = new PlayArea(); // placeholder initializer
+	PlayArea* PL = new PlayArea(); // placeholder initializer
+	map<string, SDL_Surface*> SurfaceDefinitions = InitTiles();
 	SDL_Window *MainWindow;
 	SDL_Surface *MainSurface;
 	if(!(MainWindow = SDL_CreateWindow("Tower Defense", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, glb::WindowWidth, glb::WindowHeight, 0))){ //1140*800 window
@@ -36,7 +40,7 @@ int main(){
 		rect.x = glb::WindowWidth / 2 - glb::TileSize/2;
 	SDL_Surface *surf = IMG_Load("assets/Tiles/grass.png");
 	if (surf == 0) {
-	cout << "ERROR WITH OPENING FILE";
+		cout << "ERROR WITH OPENING FILE";
 	}
 
 	#pragma region KeyControls

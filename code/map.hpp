@@ -1,3 +1,4 @@
+#include <SDL2/SDL_surface.h>
 #include <string>
 #include <vector>
 #include "player.hpp"
@@ -12,10 +13,10 @@ class MapCell{
 	public:
 	Entity* entity;
 	MapCell();
-	MapCell(Entity ent);
+	MapCell(SDL_Surface *img);
 	
 	private:
-	//TerrainPoperties TP;
+	SDL_Surface *IMG;
 	std::vector<MapCell*> Neighbours;
 
 };

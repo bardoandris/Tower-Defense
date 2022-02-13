@@ -1,14 +1,14 @@
 #include "map.hpp"
+#include <SDL2/SDL_surface.h>
 #include <boost/filesystem/path.hpp>
 #include <vector>
 #include <string>
 #include <boost/filesystem.hpp>
 
-MapCell InitCell();
 
-PlayArea::PlayArea(int diff){ // TODO STATIC PLAYAREA SIZE!!
+PlayArea::PlayArea(){ // TODO STATIC PLAYAREA SIZE!!
 	map = new std::vector< //Init 20 vectors of MapCell, 20 Cell within each
-		std::vector<MapCell>>(20, std::vector<MapCell>(20, InitCell()));
+		std::vector<MapCell>>(20, std::vector<MapCell>(20, MapCell()));
 	
 	for (auto iter = map->begin(); iter != map->end(); iter++) {
 		iter->resize(20);
@@ -18,14 +18,6 @@ PlayArea::PlayArea(int diff){ // TODO STATIC PLAYAREA SIZE!!
 	}
 }
 
-MapCell InitCell(){
-	MapCell MP;
-	return MP;
-}
-bool SetUpPlayArea(){
-
-};
-
-bool SetUpPlayArea(boost::filesystem::path Path){
-
+MapCell::MapCell(SDL_Surface *img){
+	IMG = img;
 };
